@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartUpScreen.unity
+    guid: 2c6716b72d01b054594520fe74550395
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: d0c0ebca0417c65478649d73f8f9022b
+  - enabled: 1
+    path: Assets/Scenes/MovieThemeScene.unity
+    guid: 4427296b387f5bf45b1512eeca21d378
+  - enabled: 1
+    path: Assets/Scenes/MovieStunt0.unity
+    guid: e60f7c3fb406ae14a9380bbf24ae48b9
+  - enabled: 1
+    path: Assets/Scenes/MovieStunt1.unity
+    guid: 401dad58d55833c45b12fe6cddd9b43b
+  - enabled: 1
+    path: Assets/Scenes/MovieStunt2.unity
+    guid: 06f225097791951489fc063ae12e15e3
+  - enabled: 1
+    path: Assets/Scenes/MovieStunt3.unity
+    guid: ed66fa09a052435499c387de10101347
+  - enabled: 1
+    path: Assets/Scenes/MovieStunt4.unity
+    guid: 1991f147619f0f14ea7c7be2e5ebe01d
+  - enabled: 1
+    path: Assets/Scenes/MovieStunt5.unity
+    guid: 23e79c8b9f3cb3b489e0fe7bfec4935d
+  m_configObjects: {}
