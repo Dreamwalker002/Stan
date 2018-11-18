@@ -15,7 +15,6 @@ MonoBehaviour:
   level: 0
   budget: 1250
   currentCost: 0
+  currentCamHit: 0
   stars: 0
-  camShots: 0
-  stuntPoster: {fileID: 0}
   stuntEnd: 0

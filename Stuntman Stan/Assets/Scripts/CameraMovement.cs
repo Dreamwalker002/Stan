@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
 
     public Vector3 cameraVelocity;
 
-    
+
 
     [Header("Clamp Values")]
     public float minX;
@@ -29,14 +29,35 @@ public class CameraMovement : MonoBehaviour
 
     float prevDistance;
 
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    /*
+    public Vector3 storedPos;
+    public Vector3 currentPos;
+    public Vector3 perviousPos;
+    public Transform stuntExit;
+    public Vector3 sceneOffSet;// offSet;
+    public bool ingaged = false;
+    public float panSpeed;//smoothSpeed
+    public bool buttonDown;
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private Vector3 location;
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    void Awake()
+    {
+        storedPos = transform.position;
+    }*/
     void LateUpdate()
     {
-
+        // gameManager.panbutton = buttonDown;
 
         if (playerManager.stanInPlay == false)
         {
             smoothSpeed = 2f;
-
 
             if (Input.GetMouseButton(2))
             {
@@ -78,19 +99,15 @@ public class CameraMovement : MonoBehaviour
 
                     UnityEngine.Camera.main.orthographicSize = OrthoSize;
 
-
-
-                    Debug.Log(deltaDist);
+                    // Debug.Log(deltaDist);
                 }
                 if (Input.GetTouch(1).phase == TouchPhase.Ended)
                 {
-                    Debug.Log("Cancel move/zoom");
+                    // Debug.Log("Cancel move/zoom");
                     prevDistance = 0;
                 }
             }
         }
-
-
 
         //apply the drag
         cameraVelocity = cameraVelocity / drag;
@@ -115,7 +132,72 @@ public class CameraMovement : MonoBehaviour
             transform.position = smoothedPosition;
         }
 
-        
-    }    
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*
+        perviousPos = transform.position;
+
+        if ((ingaged == false) && (buttonDown == true))
+        {
+            BackToPoint();
+
+            if (perviousPos == storedPos)
+
+            {
+                currentPos = perviousPos;
+            }
+
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        location = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        PanButton();
+        ToExit();
+        */
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  /*  void ToExit()
+    {
+
+        if (Input.GetMouseButton(0))// && (buttonDown == true)))
+        {
+            ingaged = true;
+
+            storedPos = currentPos;
+
+            Vector3 desiredPosition = stuntExit.position;
+
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, panSpeed * Time.deltaTime);
+            transform.position = smoothedPosition;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            ingaged = false;
+            buttonDown = false;
+        }
+
+    }
+
+    public void BackToPoint()
+
+    {
+        Vector3 desiredPosition = storedPos;
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, panSpeed * Time.deltaTime);
+
+        transform.position = smoothedPosition;
+    }
+
+    public void PanButton()
+    //   { if (location)
+    {
+        buttonDown = true;
+    }
+
+    */
 }
+
 

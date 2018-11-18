@@ -1350,7 +1350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &177011290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2438,7 +2438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &487570184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2710,7 +2710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &561127557
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3902,7 +3902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &800281819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4378,7 +4378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &896019563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6020,11 +6020,7 @@ MonoBehaviour:
   stuntPanel: {fileID: 706312579}
   endOfStunt: {fileID: 0}
   endOfMovie: {fileID: 0}
-  stuntSelection1: {fileID: 0}
-  stuntSelection2: {fileID: 0}
-  stuntSelection3: {fileID: 0}
-  stuntSelection4: {fileID: 0}
-  stuntSelection5: {fileID: 0}
+  buttonDown: 0
 --- !u!1 &1314603125
 GameObject:
   m_ObjectHideFlags: 0
@@ -8494,20 +8490,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868158117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9d8a6f2f558724ba5ceb5767472560, type: 3}
+  m_Script: {fileID: 11500000, guid: 0641c58300196c14d8b5a98be17a63b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  sceneName: 
-  info: {fileID: 0}
   storedinfo: {fileID: 0}
-  scoreScript: {fileID: 0}
-  eggScore: {fileID: 0}
-  peopleScore: {fileID: 0}
-  themePanel: {fileID: 0}
-  stuntPanel: {fileID: 0}
-  endOfStunt: {fileID: 0}
-  endOfMovie: {fileID: 0}
   stuntSelection1: {fileID: 561127556}
   stuntSelection2: {fileID: 487570183}
   stuntSelection3: {fileID: 177011289}

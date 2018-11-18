@@ -10,22 +10,10 @@ using UnityEngine.EventSystems;
 public class CreateItem : MonoBehaviour
 {
 
-   // public int cost;
-
-    
-
-    //public Score scoreScript;
-
 
     public GameObject [] stunItems;
     private Vector3 location;
     public Drag drag;
-
-    //private void Awake()
-   // {
-   //     Score scoreScript = GetComponent<Score>(); 
-
-   // }
 
 
     void StunItems (int i)
@@ -43,8 +31,7 @@ public class CreateItem : MonoBehaviour
     {
         location = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
         StunItems(0);
-
-       // scoreScript.thecurrentCost = (scoreScript.thecurrentCost) + 10;
+        
     }
 
     public void ItemTwo()
@@ -52,7 +39,6 @@ public class CreateItem : MonoBehaviour
         location = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
         StunItems(1);
 
-       // scoreScript.thecurrentCost = (scoreScript.thecurrentCost) + 10;
     }
 
     public void ItemThree()
@@ -60,7 +46,6 @@ public class CreateItem : MonoBehaviour
         location = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
         StunItems(2);
 
-        //scoreScript.thecurrentCost = (scoreScript.thecurrentCost) + 15;
     }
 
     public void ItemFour()
@@ -68,7 +53,6 @@ public class CreateItem : MonoBehaviour
         location = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
         StunItems(3);
 
-        //scoreScript.thecurrentCost = (scoreScript.thecurrentCost) + 5;
     }
 
 }

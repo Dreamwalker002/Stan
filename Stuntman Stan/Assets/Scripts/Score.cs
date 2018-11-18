@@ -35,6 +35,16 @@ public class Score : MonoBehaviour
 
     public int finalEggScore;
 
+    public float actionCamerasPassedThroughfloat;
+
+    public float totalActionCamerasfloat;
+
+    public float audScore;
+
+    public int finalPeopleScore;
+
+    public int finalPeopleScoreint;
+
     public int camEntered;
 
     public StoredInformation storedinfo;
@@ -109,14 +119,13 @@ public class Score : MonoBehaviour
 
         }
 
-        // information.currentCost = thecurrentCost;
         currentCost.text = thecurrentCost.ToString();
         endCost.text = thecurrentCost.ToString();
         endCost.color = color;
 
         OnBudget();
 
-        if (movieReview == true)
+        if (storedinfo.stuntEnd >= 6 == true)
         {
             MovieReview();
         }
@@ -125,22 +134,28 @@ public class Score : MonoBehaviour
     }
     void OnBudget()
     {
-        // Debug.Log("something is meant to happen");
         onBudget = thecurrentCost / thebudget;
     }
 
     void MovieReview()
     {
-        theEggScore = storedinfo.totalStuntCost / storedinfo.totalBudget;
-        finalEggScore = (int)theEggScore;
+
+        theEggScore = ((storedinfo.totalStuntCost / storedinfo.totalBudget) * 100);
         finalEggScore = Mathf.RoundToInt(theEggScore);
+        eggScore.text = finalEggScore.ToString();
 
-        eggScore.text = ((finalEggScore) * 100).ToString();
-        peopleScore.text = ((storedinfo.actionCamerasPassedThrough / storedinfo.totalActionCameras) * 100).ToString();
 
-        Debug.Log(theEggScore + "theEggScore");
-        Debug.Log(finalEggScore+"finalEggScore");
+        finalPeopleScoreint = ((storedinfo.actionCamerasPassedThrough / storedinfo.totalActionCameras));
+
+        actionCamerasPassedThroughfloat = Mathf.Round(storedinfo.actionCamerasPassedThrough);
+        totalActionCamerasfloat = Mathf.Round(storedinfo.totalActionCameras);
+
+        audScore = ((actionCamerasPassedThroughfloat / totalActionCamerasfloat) * 100);
+        finalPeopleScore = Mathf.RoundToInt(audScore);
+
+
+        peopleScore.text = finalPeopleScore.ToString();
+
     }
-
 
 }

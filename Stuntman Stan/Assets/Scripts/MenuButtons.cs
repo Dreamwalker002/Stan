@@ -22,7 +22,7 @@ public class MenuButtons : MonoBehaviour
 
     public Text eggScore;
 
-    int eggScoreint;
+    //int eggScoreint;
 
     float eggScorefloat;
 
@@ -36,15 +36,17 @@ public class MenuButtons : MonoBehaviour
 
     public GameObject endOfMovie;
 
-    public GameObject stuntSelection1;
+    // public GameObject stuntSelection1;
 
-    public GameObject stuntSelection2;
+    // public GameObject stuntSelection2;
 
-    public GameObject stuntSelection3;
+    // public GameObject stuntSelection3;
 
-    public GameObject stuntSelection4;
+    // public GameObject stuntSelection4;
 
-    public GameObject stuntSelection5;
+    // public GameObject stuntSelection5;
+
+    public bool buttonDown;
 
 
     // Use this for initialization
@@ -66,7 +68,7 @@ public class MenuButtons : MonoBehaviour
 
         stuntPanel = info.stuntPanel;
 
-        ActiveScenes();
+        //  ActiveScenes();
 
     }
 
@@ -78,9 +80,9 @@ public class MenuButtons : MonoBehaviour
 
     public void ReturnToStunt(int num)
     {
-        
-            SceneManager.LoadScene("MovieThemeScene");
-        
+
+        SceneManager.LoadScene("MovieThemeScene");
+
     }
 
     public void ReturnToStunts(int num)
@@ -89,7 +91,7 @@ public class MenuButtons : MonoBehaviour
         {
             endOfMovie.SetActive(true);
             endOfStunt.SetActive(false);
-            scoreScript.movieReview = true;
+           // scoreScript.movieReview = true;
             //  EndScreen();
         }
         else
@@ -109,15 +111,36 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene(currentScene.name);
     }
 
+ /*
     void ActiveScenes()
     {
-        for (int i = 0; i < storedinfo.stuntEnd; i++)
+         for (int i = 0; i < storedinfo.stuntEnd; i++)
+         {
+             stuntSelection1.SetActive(false);
+             Debug.Log("reset me after current job");               
+         /
+        if (storedinfo.stuntEnd >= 1)
         {
             stuntSelection1.SetActive(false);
-            Debug.Log("reset me after current job");               
+        }
+        if (storedinfo.stuntEnd >= 2)
+        {
+            stuntSelection2.SetActive(false);
+        }
+        if (storedinfo.stuntEnd >= 3)
+        {
+            stuntSelection3.SetActive(false);
+        }
+        if (storedinfo.stuntEnd >= 4)
+        {
+            stuntSelection4.SetActive(false);
+        }
+        if (storedinfo.stuntEnd >= 5)
+        {
+            stuntSelection5.SetActive(false);
         }
     }
-
+}*
     void EndScreen()
     {
         Debug.Log("i am alive in here");
@@ -131,4 +154,5 @@ public class MenuButtons : MonoBehaviour
         Debug.Log(eggScorefloat+"eggScorefloat");
         Debug.Log(eggScoreint+ "eggScoreint");
     }
+    */
 }

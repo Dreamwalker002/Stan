@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
-    // public Scene currentScene;
-
-    // public Scene pastScene;
-
     public int stuntStars;
 
     public GameObject[] starsObjects;
