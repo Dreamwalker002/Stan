@@ -5,9 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
+    #region singlton
+
+    public static PlayerManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+    }
+    #endregion
+
     public bool stanInPlay;
 
-    public GameObject [] uncrash;
+    public GameObject[] uncrash;
 
     public Rigidbody stan;
 
@@ -16,10 +29,11 @@ public class PlayerManager : MonoBehaviour
     public int force;
 
     private bool crashMat;
-    
+
     public CameraMovement carmeraMovement;
 
     public float countdownTimer;
+
 
     public void OnDrawGizmos()
     {
@@ -28,17 +42,14 @@ public class PlayerManager : MonoBehaviour
 
     public void Action()
     {
+        stanInPlay = true;
         Time.timeScale = 1;
         StartCoroutine(StartingTimer());
-
-      //  Debug.Log(stanInPlay);
-      //  Debug.Log("StartingTimer");
-
     }
 
     IEnumerator StartingTimer()
     {
-       // Debug.Log("Test");
+        // Debug.Log("Test");
         yield return new WaitForSeconds(2);
 
         carmeraMovement.minX = carmeraMovement.minX - 20f;
@@ -46,19 +57,16 @@ public class PlayerManager : MonoBehaviour
         carmeraMovement.minY = carmeraMovement.minY - 20f;
         carmeraMovement.maxY = carmeraMovement.maxY + 20f;
 
-        stanInPlay = true;
-      //  Debug.Log(stanInPlay);
-
         carmeraMovement.smoothSpeed = 1.2f;
-        
+
         yield return new WaitForSeconds(countdownTimer - 1);
 
         carmeraMovement.smoothSpeed = 6f;
-        
+
         stan.AddForce(trajectory.normalized * force, ForceMode.VelocityChange);
 
         stan.useGravity = true;
-        
+
     }
     void Uncrash()
     {
@@ -76,6 +84,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Restart()
     {
+
         Uncrash();
         stan.transform.position = new Vector3(-48.45f, 1f, 0);
         stan.useGravity = false;
@@ -91,12 +100,12 @@ public class PlayerManager : MonoBehaviour
             //Debug.Log("spat");
         }
 
-            if (other.gameObject.tag == "Finish")
-            {
-                StartCoroutine(LevelEnd());
+        if (other.gameObject.tag == "Finish")
+        {
+            StartCoroutine(LevelEnd());
 
-            }
         }
+    }
 
 
     IEnumerator LevelEnd()
@@ -105,14 +114,14 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         Time.timeScale = 0.7f;
     }
-    
+
 
     private void OnCollisionEnter(Collision collision)
     {
         if ((collision.relativeVelocity.magnitude >= 8) && (collision.collider.gameObject.tag == "building"))
         {
-           // Debug.Log("spat");
-           // Debug.Log(collision.relativeVelocity.magnitude);
+            // Debug.Log("spat");
+            // Debug.Log(collision.relativeVelocity.magnitude);
         }
 
         if (collision.collider.gameObject.tag == "FinishStunt")
@@ -121,8 +130,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-   
- 
+
+
 
 }
 

@@ -11,15 +11,15 @@ public class CreateItem : MonoBehaviour
 {
 
 
-    public GameObject [] stunItems;
+    public GameObject[] stunItems;
     private Vector3 location;
     public Drag drag;
 
 
-    void StunItems (int i)
+    void StunItems(int i)
 
     {
-        GameObject itemObject = Instantiate(stunItems[i],(location), transform.rotation);
+        GameObject itemObject = Instantiate(stunItems[i], (location), transform.rotation);
         drag = itemObject.GetComponent<Drag>();
         drag.dragging = true;
     }
@@ -31,7 +31,7 @@ public class CreateItem : MonoBehaviour
     {
         location = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
         StunItems(0);
-        
+
     }
 
     public void ItemTwo()

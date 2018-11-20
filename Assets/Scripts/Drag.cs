@@ -10,6 +10,7 @@ public class Drag : MonoBehaviour
     private float posX;
     private float posY;
 
+    public PlayerManager playermanagerScript;
 
 
     public bool dragging;
@@ -22,13 +23,16 @@ public class Drag : MonoBehaviour
 
     public GameObject pivotPoint;
 
-    
 
+    private void Awake()
+    {
+        playermanagerScript = PlayerManager.instance;
+    }
 
 
     public void OnMouseDown()
     {
-        if (EventSystem.current.IsPointerOverGameObject() == false)
+        if ((EventSystem.current.IsPointerOverGameObject() == false) && (playermanagerScript.stanInPlay == false))
         {
             dragging = true;
         }
@@ -40,13 +44,16 @@ public class Drag : MonoBehaviour
         if (rotatorHandle.gameObject.tag == "Pivot")
         {
             handle = true;
-         //   Debug.Log("handle");
+            //   Debug.Log("handle");
         }
     }
 
     private void Update()
     {
-        
+
+
+
+
 
         if (dragging)
         {
@@ -55,18 +62,14 @@ public class Drag : MonoBehaviour
             Vector3 worldPosition = UnityEngine.Camera.main.ScreenToWorldPoint(currentPosition);
 
             //Snap to int grid
-            worldPosition = new Vector3((int)worldPosition.x, (int)worldPosition.y);
+           // worldPosition = new Vector3((int)worldPosition.x, (int)worldPosition.y);
 
             transform.position = worldPosition;
 
-            
-
-
-          
             if (Input.GetMouseButtonUp(0))
             {
                 dragging = false;
-                
+
 
                 if (RubbishBin.instance.hovering == true)
                 {
@@ -83,5 +86,5 @@ public class Drag : MonoBehaviour
 
     }
 
-    
+
 }

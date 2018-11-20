@@ -56,7 +56,7 @@ public class MenuButtons : MonoBehaviour
 
         info = gameManager.GetComponent<LevelManager>();
 
-        scoreScript = gameManager.GetComponent<Score>();
+        scoreScript = Score.instance;
 
         currentScene = SceneManager.GetActiveScene();
 

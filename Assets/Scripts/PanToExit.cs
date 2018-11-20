@@ -29,7 +29,7 @@ public class PanToExit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if ((ingaged == true) && (panbuttonDown == false))
         {
 
-           if (panbuttonUp == true)
+            if (panbuttonUp == true)
             {
                 BackToPoint();
             }
@@ -80,23 +80,30 @@ public class PanToExit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         currentPos = cameraHere.transform.position;
-        
+        panbuttonUp = false;
         panbuttonDown = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log("Im leaving");
         panbuttonUp = true;
-        panbuttonDown = false;
+        panSpeed = 9;
         StartCoroutine(IngagedOff());
+        StartCoroutine(PanbuttonDownOff());
     }
 
     IEnumerator IngagedOff()
     {
-        panSpeed = 8;
-         yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.7f);
         ingaged = false;
         currentPos = perviousPos;
+    }
+
+    IEnumerator PanbuttonDownOff()
+    {
+        yield return new WaitForSeconds(1.7f);
+        panbuttonDown = false;
     }
 
 }
