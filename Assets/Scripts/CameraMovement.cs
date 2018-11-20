@@ -49,19 +49,19 @@ public class CameraMovement : MonoBehaviour
 
             if (Input.GetMouseButton(2))
             {
-                smoothSpeed = 20f;
+                smoothSpeed = 6f;
                 cameraVelocity += (new Vector3(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"), 0) * dragMultiplier);
             }
             //if not dragging and if not stan in play and if over a ui element
             if ((Input.touchCount == 1) && (EventSystem.current.IsPointerOverGameObject() == false))
             {
                 //move the camera
-                smoothSpeed = 2f;
+                smoothSpeed = 20f;
                 Vector2 averageDelta = new Vector2();
                  Debug.Log("smoothSpeed"+ smoothSpeed);
 
                 averageDelta = averageDelta + Input.GetTouch(0).deltaPosition;
-                //averageDelta = averageDelta / 2;
+                averageDelta = averageDelta / smoothSpeed;
 
                 cameraVelocity += (new Vector3(-averageDelta.x, -averageDelta.y, 0) * dragMultiplier);
             }
