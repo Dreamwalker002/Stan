@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraMovement : MonoBehaviour
 {
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+
+   
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
     public Transform target;
 
@@ -15,7 +20,7 @@ public class CameraMovement : MonoBehaviour
 
     public PlayerManager playerManager;
 
-    public float drag = 1;
+    public float camDrag = 1;
 
     public Vector3 cameraVelocity;
 
@@ -27,12 +32,16 @@ public class CameraMovement : MonoBehaviour
 
     float prevDistance;
 
+    public Vector2 minMaxCamZoom;
+
     private Vector3 location;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     void LateUpdate()
     {
+       
+
 
         if (playerManager.stanInPlay == false)
         {
@@ -43,53 +52,54 @@ public class CameraMovement : MonoBehaviour
                 smoothSpeed = 20f;
                 cameraVelocity += (new Vector3(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"), 0) * dragMultiplier);
             }
-            if (Input.touchCount > 1)
+            //if not dragging and if not stan in play and if over a ui element
+            if ((Input.touchCount == 1) && (EventSystem.current.IsPointerOverGameObject() == false))
+            {
+                //move the camera
+                smoothSpeed = 2f;
+                Vector2 averageDelta = new Vector2();
+                 Debug.Log("smoothSpeed"+ smoothSpeed);
+
+                averageDelta = averageDelta + Input.GetTouch(0).deltaPosition;
+                //averageDelta = averageDelta / 2;
+
+                cameraVelocity += (new Vector3(-averageDelta.x, -averageDelta.y, 0) * dragMultiplier);
+            }
+            else if (Input.touchCount > 1)
             {
                 //Check that our two fingers distance is less then x
                 //Debug.Log(Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position));
-
-                if (Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position) < 90)
+                //Zoom the camera
+                if (prevDistance == 0)
                 {
-
-                    smoothSpeed = 20f;
-                    Vector2 averageDelta = new Vector2();
-
-                    averageDelta = averageDelta + Input.GetTouch(0).deltaPosition + Input.GetTouch(1).deltaPosition;
-                    averageDelta = averageDelta / 2;
-
-                    cameraVelocity += (new Vector3(-averageDelta.x, -averageDelta.y, 0) * dragMultiplier);
+                    prevDistance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
                 }
-                else
-                {
-                    if (prevDistance == 0)
-                    {
-                        prevDistance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-                    }
-                    float dist = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-                    float deltaDist = (prevDistance - dist);
-                    prevDistance = dist;
+                float dist = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                float deltaDist = (prevDistance - dist);
+                prevDistance = dist;
 
-                    deltaDist = deltaDist / 10;
+                deltaDist = deltaDist / 10;
 
-                    float OrthoSize = UnityEngine.Camera.main.orthographicSize;
-                    OrthoSize += deltaDist;
+                float OrthoSize = UnityEngine.Camera.main.orthographicSize;
+                OrthoSize += deltaDist;
 
-                    OrthoSize = Mathf.Clamp(OrthoSize, 5, 50);
+                OrthoSize = Mathf.Clamp(OrthoSize, minMaxCamZoom.x, minMaxCamZoom.y);
 
-                    UnityEngine.Camera.main.orthographicSize = OrthoSize;
+                UnityEngine.Camera.main.orthographicSize = OrthoSize;
 
-                    // Debug.Log(deltaDist);
-                }
+                // Debug.Log(deltaDist);
                 if (Input.GetTouch(1).phase == TouchPhase.Ended)
                 {
                     // Debug.Log("Cancel move/zoom");
                     prevDistance = 0;
                 }
             }
-        }
 
+            Debug.Log("smoothSpeed2" + smoothSpeed);
+        }
+        Debug.Log("smoothSpeed3" + smoothSpeed);
         //apply the drag
-        cameraVelocity = cameraVelocity / drag;
+        cameraVelocity = cameraVelocity / camDrag;
 
         transform.position += cameraVelocity;
 

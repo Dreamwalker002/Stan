@@ -23,19 +23,23 @@ public class RubbishBin : MonoBehaviour, IPointerEnterHandler , IPointerExitHand
     #endregion
 
     public bool hovering;
-    
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //do your stuff when highlighted
-       // Debug.Log("Entering");
         hovering = true;
+       // Debug.Log("Starting to hover");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        StartCoroutine(LateBinHovering());
+    }
+
+    IEnumerator LateBinHovering()
+    {
+        yield return new WaitForEndOfFrame();
         hovering = false;
-        //Debug.Log("Leaving");
+       // Debug.Log("Leaving Hover");
     }
 }
 

@@ -6,13 +6,14 @@ using UnityEngine.EventSystems;
 
 public class Drag : MonoBehaviour
 {
+
+
     Vector3 distance;
     private float posX;
     private float posY;
 
     public PlayerManager playermanagerScript;
-
-
+    
     public bool dragging;
 
     public float rotationSpeed;//rotate around point
@@ -26,6 +27,7 @@ public class Drag : MonoBehaviour
 
     private void Awake()
     {
+
         playermanagerScript = PlayerManager.instance;
     }
 
@@ -51,10 +53,6 @@ public class Drag : MonoBehaviour
     private void Update()
     {
 
-
-
-
-
         if (dragging)
         {
             Vector3 currentPosition = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - posY, 0);
@@ -70,7 +68,8 @@ public class Drag : MonoBehaviour
             {
                 dragging = false;
 
-
+                //Debug.Log("Release");
+                //Debug.Log(RubbishBin.instance.hovering);
                 if (RubbishBin.instance.hovering == true)
                 {
                     //do stuff
