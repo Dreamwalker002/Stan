@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 1138191602968462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.5, z: 0}
-  m_LocalScale: {x: 0.3349948, y: 0.33499476, z: 0.33499476}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.33499476}
   m_Children: []
   m_Father: {fileID: 4463269579851854}
   m_RootOrder: 2
@@ -258,7 +258,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7ed32c7abf5f570469ee101c4eaf6720, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playermanagerScript: {fileID: 0}
-  dragging: 0
+  privateDragging: 0
   rotationSpeed: 10
   itemScript: {fileID: 114272043565986938}
   pivotPoint: {fileID: 1385856723440496}
@@ -516,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84218e93b0210a42b36e1ae98250cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraMovementScript: {fileID: 0}
   dragScript: {fileID: 114536206842717196}
   fan: {fileID: 1789809458893034}
   dragging: 0

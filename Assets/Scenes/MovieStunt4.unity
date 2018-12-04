@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.2464749, g: 0.2823448, b: 0.34570262, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1137,14 +1137,15 @@ MonoBehaviour:
   target: {fileID: 1048748202}
   smoothSpeed: 0
   dragMultiplier: 0.01
-  offSet: {x: 2.26, y: 0.32, z: -10.08}
+  offSet: {x: 2.26, y: 0.32, z: 0}
   playerManager: {fileID: 1048748203}
-  drag: 1.1
+  camDrag: 1
   cameraVelocity: {x: 0, y: 0, z: 0}
   minX: -49
   maxX: -12
   minY: -15.5
   maxY: 19.5
+  minMaxCamZoom: {x: 4.77, y: 15}
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

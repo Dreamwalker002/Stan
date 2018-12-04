@@ -952,7 +952,7 @@ MonoBehaviour:
   target: {fileID: 1048748202}
   smoothSpeed: 0
   dragMultiplier: 0.01
-  offSet: {x: 2.26, y: 0.32, z: -10.08}
+  offSet: {x: 2.26, y: 0.32, z: 0}
   playerManager: {fileID: 1048748203}
   camDrag: 1
   cameraVelocity: {x: 0, y: 0, z: 0}
@@ -960,7 +960,7 @@ MonoBehaviour:
   maxX: 2
   minY: -8.7
   maxY: 15
-  minMaxCamZoom: {x: 5, y: 50}
+  minMaxCamZoom: {x: 4.77, y: 15}
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class CreateItem : MonoBehaviour
     {
         GameObject itemObject = Instantiate(stunItems[i], (location), transform.rotation);
         drag = itemObject.GetComponent<Drag>();
-        drag.dragging = true;
+        drag.privateDragging = true;
     }
 
 

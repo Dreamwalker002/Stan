@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1960,7 +1960,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 253499fa05ac06d49a8a5f3c58e4f432, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2276,7 +2276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507534745
 GameObject:
@@ -3143,7 +3143,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 5.6780005, y: 0.49100003, z: 0.12100001}
 --- !u!1 &637389518
 GameObject:
@@ -4236,7 +4236,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ab3bd2a87fad7e844a4597cf7aee0368, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4443,7 +4443,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: b40869aeb23e7cb4d9d3d7c0844a178f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4631,7 +4631,7 @@ RectTransform:
   - {fileID: 2046481119}
   - {fileID: 1697366673}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6007,7 +6007,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 3b14017b9f7e1c742b0dd0a7c0c3cd45, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6774,7 +6774,7 @@ Transform:
   - {fileID: 94195974}
   - {fileID: 1730298540}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506730163
 GameObject:
@@ -8120,7 +8120,7 @@ Prefab:
         type: 2}
       propertyPath: gameMusic
       value: 
-      objectReference: {fileID: 1937335980}
+      objectReference: {fileID: 0}
     - target: {fileID: 82819659555200524, guid: 19038a3b7cc7259489f6c13462f16769,
         type: 2}
       propertyPath: m_Volume
@@ -8135,11 +8135,6 @@ Prefab:
     - {fileID: 114392524143628054, guid: 19038a3b7cc7259489f6c13462f16769, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 19038a3b7cc7259489f6c13462f16769, type: 2}
   m_IsPrefabParent: 0
---- !u!82 &1937335980 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82819659555200524, guid: 19038a3b7cc7259489f6c13462f16769,
-    type: 2}
-  m_PrefabInternal: {fileID: 1937335979}
 --- !u!1 &1938032259
 GameObject:
   m_ObjectHideFlags: 0

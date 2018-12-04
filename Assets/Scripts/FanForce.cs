@@ -17,7 +17,7 @@ public class FanForce : MonoBehaviour
     {
         if (dragScript.playermanagerScript.stanInPlay == true)
         {
-            Debug.Log("Blow");
+            // Debug.Log("Blow");
             Vector3 forceDir = transform.forward;
             forceDir *= force * curve.Evaluate(Vector3.Distance(transform.position, other.transform.position));
             other.GetComponent<Rigidbody>().AddForce(forceDir, ForceMode.Acceleration);

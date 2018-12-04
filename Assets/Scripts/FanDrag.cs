@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class FanDrag : MonoBehaviour
 {
+    public CameraMovement cameraMovementScript;
+
     public Drag dragScript;
 
     public GameObject fan;
@@ -26,10 +28,10 @@ public class FanDrag : MonoBehaviour
 
         if (dragScript.playermanagerScript.stanInPlay == false)
         {
-
-
             if (dragging)
             {
+
+
                 Vector3 currentPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
 
                 Vector3 worldPosition = UnityEngine.Camera.main.ScreenToWorldPoint(currentPosition);
@@ -59,6 +61,7 @@ public class FanDrag : MonoBehaviour
                     transform.position = pos;
 
                 }
+                Drag.globalDragging = dragging;
             }
         }
     }

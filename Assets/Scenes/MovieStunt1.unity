@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.2464749, g: 0.2823448, b: 0.34570262, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -952,14 +952,15 @@ MonoBehaviour:
   target: {fileID: 1048748202}
   smoothSpeed: 0
   dragMultiplier: 0.01
-  offSet: {x: 2.26, y: 0.32, z: -10.08}
+  offSet: {x: 2.26, y: 0.32, z: 0}
   playerManager: {fileID: 1048748203}
-  drag: 1.1
+  camDrag: 1
   cameraVelocity: {x: 0, y: 0, z: 0}
   minX: -51
   maxX: -2
   minY: -15.7
   maxY: 11.5
+  minMaxCamZoom: {x: 4.77, y: 18}
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -2313,27 +2314,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 716289667}
---- !u!1 &729947399 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1438319550823374, guid: 19038a3b7cc7259489f6c13462f16769,
-    type: 2}
-  m_PrefabInternal: {fileID: 1593194674}
---- !u!114 &729947400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 729947399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e673d412986ef4f93585218b727fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalBudget: 0
-  totalStuntCost: 0
-  totalActionCameras: 0
-  actionCamerasPassedThrough: 0
-  stuntEnd: 0
 --- !u!1 &747901560
 GameObject:
   m_ObjectHideFlags: 0
