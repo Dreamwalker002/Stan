@@ -24,6 +24,8 @@ public class Drag : MonoBehaviour
 
     public GameObject pivotPoint;
 
+    public float floatSnap = .5f;
+
 
     private void Awake()
     {
@@ -56,14 +58,22 @@ public class Drag : MonoBehaviour
         if (privateDragging)
         {
             
+
             Vector3 currentPosition = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - posY, 0);
 
             Vector3 worldPosition = UnityEngine.Camera.main.ScreenToWorldPoint(currentPosition);
 
-            //Snap to int grid
-            // worldPosition = new Vector3((int)worldPosition.x, (int)worldPosition.y);
+            //Vector3 floatSnap = new Vector3(5f, 5f , 0);
 
-            transform.position = worldPosition;
+            //Snap to int grid
+           // worldPosition = new Vector3(Mathf.Round(worldPosition.x)/100f * 100, Mathf.Round(worldPosition.y)/100f*100);
+           // worldPosition = new Vector3(Mathf.Round(worldPosition.x / floatSnap.x),Mathf.Round(worldPosition.y / floatSnap.y));
+
+            //int intSnap;
+            
+            //floatSnap = Mathf.Round(intSnap)/2;
+
+            transform.position = Snap.snap(worldPosition, .5f) ;
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -83,7 +93,23 @@ public class Drag : MonoBehaviour
             globalDragging = privateDragging;
         }
 
+    } 
+}
+
+
+[System.Serializable]
+public class Snap
+{
+
+    public static Vector3 snap(Vector3 pos, float v)
+    {
+        float x = pos.x;
+        float y = pos.y;
+        float z = pos.z;
+        x = Mathf.Round(x / v) * v;
+        y = Mathf.Round(y / v) * v;
+        z = Mathf.Round(z / v) * v;
+        return new Vector3(x, y, z);
     }
 
-
-}
+} 

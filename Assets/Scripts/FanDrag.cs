@@ -37,7 +37,7 @@ public class FanDrag : MonoBehaviour
                 Vector3 worldPosition = UnityEngine.Camera.main.ScreenToWorldPoint(currentPosition);
 
                 //Snap to int grid
-                //worldPosition = new Vector3((int)worldPosition.x, (int)worldPosition.y);
+               // worldPosition = new Vector3((int)worldPosition.x, (int)worldPosition.y);
 
                 //Clamp our position
                 //releative to our x position from our fan
@@ -47,7 +47,7 @@ public class FanDrag : MonoBehaviour
                 worldPosition.y = Mathf.Clamp(worldPosition.y, fan.transform.position.y + relativeX, 100000);
                 worldPosition.z = 0;
 
-                transform.position = worldPosition;
+                transform.position = Snap.snap(worldPosition, .5f);
 
                 if (Input.GetMouseButtonUp(0))
                 {
