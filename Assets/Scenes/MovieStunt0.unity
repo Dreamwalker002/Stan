@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2464749, g: 0.2823448, b: 0.34570262, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3778,7 +3778,7 @@ MonoBehaviour:
   trajectory: {x: 100, y: 109.88, z: 0}
   force: 8
   carmeraMovement: {fileID: 282840812}
-  countdownTimer: 5
+  countdownTimer: 1.5
 --- !u!1 &1057051502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.05777778}
-  m_AnchoredPosition: {x: 0, y: -0.14999}
+  m_AnchoredPosition: {x: 0, y: -0.15002441}
   m_SizeDelta: {x: 0, y: 0.29999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122898726
