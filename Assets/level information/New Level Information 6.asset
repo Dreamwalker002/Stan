@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01af215596bb0b047809a7a14f8b2117, type: 3}
-  m_Name: New Level Information 5
+  m_Name: New Level Information 6
   m_EditorClassIdentifier: 
-  levelName: MovieStunt
+  levelName: 
   level: 0
-  budget: 1300
+  budget: 200
   currentCost: 0
   currentCamHit: 0
   stars: 0

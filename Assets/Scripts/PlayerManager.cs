@@ -34,7 +34,21 @@ public class PlayerManager : MonoBehaviour
 
     public float countdownTimer;
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    public GameObject inPlayUI;
+    public float turnUIOnTimer;
 
+    private void Start()
+    {
+        StartCoroutine(StartingUI());
+    }
+
+    IEnumerator StartingUI()
+    {
+        yield return new WaitForSeconds(turnUIOnTimer);
+        inPlayUI.SetActive(true);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     public void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + trajectory.normalized * force);

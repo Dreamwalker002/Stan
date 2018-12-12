@@ -63,6 +63,7 @@ public class LevelManager : MonoBehaviour {
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
 
+       
     }
 
     public void Theme(int num)

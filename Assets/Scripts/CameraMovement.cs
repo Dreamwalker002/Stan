@@ -27,9 +27,62 @@ public class CameraMovement : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
+
+        storedPos = transform.position;
+        
     }
     #endregion
 
+    ///////// LevelOverView /////////////////////////////////////////////////////////////////////////////////////////
+
+    public Vector2 storedPos;
+    public Vector2 moveToPos;
+    public AnimationCurve animatedMoveCurve;
+
+    public float startingSize;
+    public float endingSize = 10;
+    Camera mainCamera;
+
+    private void Start()
+    {
+        mainCamera = GetComponent<Camera>();
+        startingSize = mainCamera.orthographicSize;
+        ToExit();
+    }
+
+    public void ToExit()
+    {
+        smoothSpeed = 2f;
+        StartCoroutine(PanbuttonUpOff());
+    }
+
+    IEnumerator PanbuttonUpOff()
+    {
+        yield return new WaitForSeconds(1f);
+
+        yield return StartCoroutine(LerpWithTime(transform, storedPos, moveToPos, 6f, startingSize, endingSize));
+
+        yield return new WaitForSeconds(2f);
+
+        yield return StartCoroutine(LerpWithTime(transform, moveToPos, storedPos, 8f, endingSize, startingSize));
+
+    }
+
+    IEnumerator LerpWithTime(Transform objectToMove, Vector3 a, Vector3 b, float speed, float startOrtho, float finishOrtho)
+    {
+        float step = (speed / (a - b).magnitude) * Time.deltaTime;
+        float t = 0;
+        while (t <= 1.0f)
+        {
+            t += step; // Goes from 0 to 1, incrementing by step each time
+            objectToMove.position = Vector3.Lerp(a, b, animatedMoveCurve.Evaluate(t)); // Move objectToMove closer to b
+
+            mainCamera.orthographicSize = Mathf.Lerp(startOrtho, finishOrtho, animatedMoveCurve.Evaluate(t));
+            yield return new WaitForFixedUpdate();         // Leave the routine and return here in the next frame
+        }
+        objectToMove.position = b;
+        mainCamera.orthographicSize = finishOrtho;
+    }
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     public Transform target;
@@ -55,17 +108,20 @@ public class CameraMovement : MonoBehaviour
     float prevDistance;
 
     public Vector2 minMaxCamZoom;
+    float orthoSize;
 
     private Vector3 location;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
-   // public bool drag;
+    // public bool drag;
 
-   // private float slowDown = .1f;
+    // private float slowDown = .1f;
     //////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     void LateUpdate()
     {
+        //ToExit();
 
         if (playerManager.stanInPlay == false)
         {
@@ -105,12 +161,11 @@ public class CameraMovement : MonoBehaviour
 
                 deltaDist = deltaDist / 10;
 
-                float OrthoSize = UnityEngine.Camera.main.orthographicSize;
-                OrthoSize += deltaDist;
+                mainCamera.orthographicSize = Mathf.Clamp(
+                    mainCamera.orthographicSize += deltaDist,
+                    minMaxCamZoom.x, 
+                    minMaxCamZoom.y);
 
-                OrthoSize = Mathf.Clamp(OrthoSize, minMaxCamZoom.x, minMaxCamZoom.y);
-
-                UnityEngine.Camera.main.orthographicSize = OrthoSize;
 
                 // Debug.Log(deltaDist);
                 if (Input.GetTouch(1).phase == TouchPhase.Ended)

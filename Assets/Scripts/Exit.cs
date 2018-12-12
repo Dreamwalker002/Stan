@@ -53,12 +53,13 @@ public class Exit : MonoBehaviour
         score.information.stars = stuntStars;
 
         endOfStunt.SetActive(true);
-
+   
         Time.timeScale = 0;
 
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////
+
 
     public int GetCamsEntered()
     {
